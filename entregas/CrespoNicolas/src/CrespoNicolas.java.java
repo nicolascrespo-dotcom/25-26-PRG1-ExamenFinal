@@ -1,26 +1,20 @@
 import java.util.Scanner;
 
-class GestorTareas {
+class GestorTarea {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String[] tareas = new String[10];
         boolean[] completadas = new boolean[10];
         int numTareas = 0;
-
+        final int MAX_TAREAS = 10;
+        int opcion = 0;
         System.out.println("Gestor de Tareas v1.0");
 
         while (true) {
-            System.out.println("[1] Anadir tarea");
-            System.out.println("[2] Marcar tarea como completada");
-            System.out.println("[3] Ver tareas pendientes");
-            System.out.println("[4] Ver estadisticas");
-            System.out.println("[5] Salir");
-            System.out.print("Opcion: ");
-            int opcion = sc.nextInt();
-            sc.nextLine();
+           opcion= Impresor (sc, opcion);
 
             if (opcion == 1) {
-                if (numTareas < 10) {
+                if (numTareas < MAX_TAREAS) {
                     System.out.print("Descripcion de la nueva tarea: ");
                     String d = sc.nextLine();
                     tareas[numTareas] = d;
@@ -86,5 +80,17 @@ class GestorTareas {
             }
         }
         sc.close();
+    }
+       static int Impresor(Scanner sc, int opcion) {
+        System.out.println("[1] Anadir tarea");
+        System.out.println("[2] Marcar tarea como completada");
+        System.out.println("[3] Ver tareas pendientes");
+        System.out.println("[4] Ver estadisticas");
+        System.out.println("[5] Salir");
+        System.out.print("Opcion: ");
+        opcion = sc.nextInt();
+        sc.nextLine();
+        return opcion;
+
     }
 }
